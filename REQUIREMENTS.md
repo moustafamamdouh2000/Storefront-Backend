@@ -8,21 +8,20 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### Products
 
-- Index
-- Show (args: product id)
-- Create (args: Product)[token required]
+- Index '/get_products' GET
+- Show (args: product id) '/get_product/:id' GET
+- Create (args: Product)[token required] '/add_product' POST
 
 #### Users
 
-- Index [token required]
-- Show (args: id)[token required]
-- Create (args: User)
-
+- Index [token required] '/get_users' GET
+- Show (args: id)[token required] '/get_user/:id' GET
+- Create (args: User) '/add_user' POST
+- Authentication ( if user wants token to do auth actions ) '/authenticate' POST(must login with username and password)
 #### Orders
 
-- Current Order by user (args: user id)[token required]
-- Create Order
-- Add product to specific order
+- Current Order by user (args: user id)[token required] '/get_user_orders/:id' GET
+- Create Order '/add_order' POST
 
 ## Data Shapes
 
