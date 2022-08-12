@@ -15,8 +15,6 @@ Your application must make use of the following libraries:
 - jsonwebtoken from npm for working with JWTs
 - jasmine from npm for testing
 
-## Steps to Completion
-
 ### Getting Started
 
 simply run npm i , to install the required technologies mentioned above.
