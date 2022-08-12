@@ -19,20 +19,6 @@ const addOrder = async (req: Request, res: Response) => {
     res.json((error as Error).message);
   }
 };
-
-// const addProductToOrder = async (req: Request, res: Response) => {
-//   try {
-//     const orderId: number = parseInt(req.params.id);
-//     const productId: number = parseInt(req.body.product_id);
-//     const quantity: number = parseInt(req.body.quantity);
-//     const addedProduct = await store.addProductToOrder(quantity, orderId, productId);
-//     res.json(addedProduct);
-//   } catch (error) {
-//     res.status(400);
-//     res.json((error as Error).message);
-//   }
-// };
-
 const getUserOrders = async (req: Request, res: Response) => {
   const userId: number = parseInt(req.params.id);
 
@@ -47,7 +33,6 @@ const getUserOrders = async (req: Request, res: Response) => {
 
 const orderRoutes = (app: express.Application): void => {
   app.post('/add_order', authentication, addOrder);
-  // app.post('/add_product_order/:id', authentication, addProductToOrder);
   app.get('/get_user_orders/:id', authentication, getUserOrders);
 };
 

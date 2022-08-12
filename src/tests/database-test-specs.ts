@@ -28,13 +28,6 @@ describe('User Model', () => {
     user_id: 1,
   };
 
-  const newOrderProduct: Order_Products = {
-    id: 1,
-    quantity: 5,
-    order_id: newOrder.id as number,
-    product_id: newProduct.id as number,
-  };
-
   describe('User Model Auth', () => {
     it('Create New User test', async () => {
       const res = await userStore.addUser(newUser);
@@ -93,18 +86,6 @@ describe('User Model', () => {
       expect(res.status).toEqual(newOrder.status);
       expect(res.id).toEqual(newOrder.id);
     });
-
-    // it('Adding Product to order by ord id test', async () => {
-    //   const res = await orderStore.addProductToOrder(
-    //     newOrderProduct.quantity,
-    //     newOrderProduct.order_id,
-    //     newOrderProduct.product_id
-    //   );
-    //   expect(res.id).toEqual(1);
-    //   expect(res.order_id).toEqual(newOrderProduct.order_id);
-    //   expect(res.product_id).toEqual(newOrderProduct.product_id);
-    //   expect(res.quantity).toEqual(newOrderProduct.quantity);
-    // });
 
     it('Return user orders by user_id test', async () => {
       const res = await orderStore.getUserOrders(newUser.id as number);
