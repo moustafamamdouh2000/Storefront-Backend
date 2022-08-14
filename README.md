@@ -58,7 +58,7 @@ you can use these script , some might need to run in order for the process to wo
 - "routes-test": jasmine script to test for each route
 
 Note: if for some reason the test commands doesn't work and gives you that the database doesn't exist please do the following:
-1- create new user with same name as the test database
-2- make sure to grant this user all privileges and make his role superuser , query for altering role is `ALTER ROLE username SUPERUSER;` , query for granting privileges is connecting to the test database first then writing this query `GRANT ALL PRIVILEGES ON database_test TO username-also database name-;` without whats between the hyphen.
-3- add the user name and database name in the .env file
-4- run the scripts
+ - create new user with same name as the test database
+ - make sure to grant this user all privileges and make his role superuser , query for altering role is `ALTER ROLE username SUPERUSER;` , query for granting privileges is connecting to the test database first then writing this query `GRANT ALL PRIVILEGES ON database_test TO username-also database name-;` without whats between the hyphen.
+ - add the user name and database name in the .env file
+ - run the scripts
