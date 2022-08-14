@@ -32,11 +32,11 @@ These are the notes from a meeting with the frontend developer that describe wha
 - name
 - price
 
-Column | Type | Collation | Nullable | Default
---------+-----------------------+-----------+----------+--------------------------------------
-id | integer | | not null | nextval('products_id_seq'::regclass)
-name | character varying(50) | | not null |
-price | integer | | not null |
+| Column |          Type         | Nullable |                Default               |
+|:------:|:---------------------:|:--------:|:------------------------------------:|
+|   id   |        integer        | not null | nextval('products_id_seq'::regclass) |
+|  name  | character varying(50) | not null |                                      |
+|  price |        integer        | not null |                                      |
 
 #### User
 
@@ -46,13 +46,13 @@ price | integer | | not null |
 - lastName
 - password
 
-  Column | Type | Collation | Nullable | Default
-  ------------+------------------------+-----------+----------+-----------------------------------
-  id | integer | | not null | nextval('users_id_seq'::regclass)
-  user_name | character varying(30) | | not null |
-  first_name | character varying(30) | | not null |
-  last_name | character varying(30) | | not null |
-  password | character varying(255) | | not null |
+|   Column   |          Type          | Nullable |                Default               |
+|:----------:|:----------------------:|:--------:|:------------------------------------:|
+|     id     |         integer        | not null | nextval('products_id_seq'::regclass) |
+|  user_name |  character varying(30) | not null |                                      |
+| first_name |  character varying(30) | not null |                                      |
+| last_name  | character varying(30)  | not null |                                      |
+| password   | character varying(255) | not null |                                      |
 
 #### Orders
 
@@ -60,11 +60,11 @@ price | integer | | not null |
 - user_id
 - status of order (active or complete)
 
-Column | Type | Collation | Nullable | Default
----------+---------+-----------+----------+------------------------------------
-id | integer | | not null | nextval('orders_id_seq'::regclass)
-status | state | | not null |
-user_id | integer | | not null |
+|  Column |    Type   | Nullable |                Default               |
+|:-------:|:---------:|:--------:|:------------------------------------:|
+|    id   |  integer  | not null | nextval('products_id_seq'::regclass) |
+| status  |   state   | not null |                                      |
+| user_id |  integer  | not null |                                      |
 
 #### Order_Products
 
@@ -73,9 +73,9 @@ user_id | integer | | not null |
 - quantity of each product in the order
 - product id
 
-  Column | Type | Collation | Nullable | Default
-  ------------+---------+-----------+----------+--------------------------------------------
-  id | integer | | not null | nextval('order_products_id_seq'::regclass)
-  quantity | integer | | not null |
-  order_id | integer | | not null |
-  product_id | integer | | not null |
+|   Column   |   Type  | Nullable |                Default               |
+|:----------:|:-------:|:--------:|:------------------------------------:|
+|     id     | integer | not null | nextval('products_id_seq'::regclass) |
+|  quantity  | integer | not null |                                      |
+| order_id   | integer | not null |                                      |
+| product_id | integer | not null |                                      |
