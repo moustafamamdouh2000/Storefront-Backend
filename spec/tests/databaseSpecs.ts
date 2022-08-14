@@ -1,5 +1,5 @@
 import { User, UserStore } from '../../src/models/user';
-import { Order, Order_Products, OrderStore } from '../../src/models/order';
+import { Order, OrderStore } from '../../src/models/order';
 import { Product, ProductStore } from '../../src/models/product';
 
 import client from '../../src/database';

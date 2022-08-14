@@ -4,14 +4,17 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
+    "builds": "set NODE_ENV=test && npx ts-node ./src/test.ts",
     "runDB":"type '.env' && export NODE_ENV=test && SET NODE_ENV=test && type '.env'",
     "start": "nodemon src/app.ts",
     "clean": "rimraf build/",
     "build": "yarn clean && npx tsc",
     "dev-up": "db-migrate up --config ./database.json --e dev",
     "dev-down": "db-migrate reset --config ./database.json --e dev",
-    "db-test": "npm run dev-down && npm run dev-up && npx jasmine-ts spec/tests/databaseSpecs.ts && npm run dev-down",
-    "routes-test": " npm run dev-down && npm run dev-up && jasmine-ts spec/tests/routesSpecs.ts && npm run dev-down"
+    "db-test": "set NODE_ENV=test && npm run test-down && npm run test-up && npx jasmine-ts spec/tests/databaseSpecs.ts && npm run test-down",
+    "test-up": "db-migrate up --config ./database.json --e test",
+    "test-down": "db-migrate reset --config ./database.json --e test",
+    "routes-test": "set NODE_ENV=test && npm run test-down && npm run test-up &&  npx jasmine-ts spec/tests/routesSpecs.ts && npm run test-down"
   },
   "author": "Moustafa Sabry",
   "license": "ISC",

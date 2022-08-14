@@ -1,32 +1,32 @@
 {
     "dev": {
-        "driver": "pg",
+        "user": {
+            "ENV": "PGUSER"
+        },
+        "password": {
+            "ENV": "PGPASSWORD"
+        },
         "host": {
             "ENV": "PGHOST"
         },
         "database": {
             "ENV": "PGDATABASE_DEV"
         },
+        "driver": "pg"
+    },
+    "test": {
         "user": {
             "ENV": "PGUSER"
         },
         "password": {
             "ENV": "PGPASSWORD"
-        }
-    },
-    "test": {
-        "driver": "pg",
+        },
         "host": {
             "ENV": "PGHOST"
         },
         "database": {
             "ENV": "PGDATABASE_TEST"
         },
-        "user": {
-            "ENV": "PGUSER"
-        },
-        "password": {
-            "ENV": "PGPASSWORD"
-        }
+        "driver": "pg"
     }
 }
