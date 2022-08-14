@@ -18,6 +18,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Show (args: id)[token required] '/get_user/:id' GET
 - Create (args: User) '/add_user' POST
 - Authentication ( if user wants token to do auth actions ) '/authenticate' POST(must login with username and password)
+
 #### Orders
 
 - Current Order by user (args: user id)[token required] '/get_user_orders/:id' GET
@@ -31,6 +32,12 @@ These are the notes from a meeting with the frontend developer that describe wha
 - name
 - price
 
+Column | Type | Collation | Nullable | Default
+--------+-----------------------+-----------+----------+--------------------------------------
+id | integer | | not null | nextval('products_id_seq'::regclass)
+name | character varying(50) | | not null |
+price | integer | | not null |
+
 #### User
 
 - id
@@ -39,11 +46,25 @@ These are the notes from a meeting with the frontend developer that describe wha
 - lastName
 - password
 
+  Column | Type | Collation | Nullable | Default
+  ------------+------------------------+-----------+----------+-----------------------------------
+  id | integer | | not null | nextval('users_id_seq'::regclass)
+  user_name | character varying(30) | | not null |
+  first_name | character varying(30) | | not null |
+  last_name | character varying(30) | | not null |
+  password | character varying(255) | | not null |
+
 #### Orders
 
 - id
 - user_id
 - status of order (active or complete)
+
+Column | Type | Collation | Nullable | Default
+---------+---------+-----------+----------+------------------------------------
+id | integer | | not null | nextval('orders_id_seq'::regclass)
+status | state | | not null |
+user_id | integer | | not null |
 
 #### Order_Products
 
@@ -51,3 +72,10 @@ These are the notes from a meeting with the frontend developer that describe wha
 - id of each product in the order
 - quantity of each product in the order
 - product id
+
+  Column | Type | Collation | Nullable | Default
+  ------------+---------+-----------+----------+--------------------------------------------
+  id | integer | | not null | nextval('order_products_id_seq'::regclass)
+  quantity | integer | | not null |
+  order_id | integer | | not null |
+  product_id | integer | | not null |

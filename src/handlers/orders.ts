@@ -20,11 +20,9 @@ const addOrder = async (req: Request, res: Response) => {
   }
 };
 const getUserOrders = async (req: Request, res: Response) => {
-  const userId: number = parseInt(req.params.id);
-
   try {
-    const addedProduct = await store.getUserOrders(userId);
-    res.json(addedProduct);
+    const getOrder = await store.getUserOrders(parseInt(req.params.id));
+    res.json(getOrder);
   } catch (error) {
     res.status(400);
     res.json((error as Error).message);

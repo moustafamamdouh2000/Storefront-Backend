@@ -52,22 +52,26 @@ export class UserStore {
       connection.release();
 
       return result.rows[0];
-    } catch (err) {
-      throw new Error(`Could not add new user, Error: ${(err as Error).message}`);
+    } catch (error) {
+      throw new Error(`Could not add new user, Error: ${(error as Error).message}`);
     }
   }
   async authenticate(user_name: string, password: string): Promise<User | string> {
-    const sql = 'SELECT * FROM users WHERE user_name=$1';
-    const connection = await Client.connect();
+    try {
+      const sql = 'SELECT * FROM users WHERE user_name=$1';
+      const connection = await Client.connect();
 
-    const res = await connection.query(sql, [user_name]);
-    connection.release();
+      const res = await connection.query(sql, [user_name]);
+      connection.release();
 
-    if (res.rows.length) {
-      if (bcrypt.compareSync(password + pepper, res.rows[0].password)) {
-        return res.rows[0];
+      if (res.rows.length) {
+        if (bcrypt.compareSync(password + pepper, res.rows[0].password)) {
+          return res.rows[0];
+        }
       }
+      return 'wrong password or username';
+    } catch (error) {
+      throw new Error(`can\'t this.authenticate the user, Error: ${(error as Error).message}`);
     }
-    return 'wrong password or username';
   }
 }

@@ -11,14 +11,12 @@ const store = new UserStore();
 
 const addUser = async (req: Request, res: Response) => {
   try {
-    console.log(req.body);
     const user: User = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       user_name: req.body.user_name,
       password: req.body.password,
     };
-    console.log(user);
 
     const newUser = await store.addUser(user);
     const token = jwt.sign(
@@ -33,8 +31,8 @@ const addUser = async (req: Request, res: Response) => {
       tokenSecret as string
     );
     res.json(token);
-  } catch (err) {
-    res.status(400).json((err as Error).message);
+  } catch (error) {
+    res.status(400).json((error as Error).message);
   }
 };
 
