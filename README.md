@@ -39,6 +39,8 @@ after creating the file and adjusting the variables , you need to create the dat
 
 ### 2. API END POINTS
 
+the default port for running this application is port 3000 , and postgres database on port 5432(default one)
+
 check the REQUIREMENTS.md file for more info on each api
 
 ### 3. Scripts avaliable
